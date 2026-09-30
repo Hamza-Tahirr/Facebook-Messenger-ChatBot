@@ -40,6 +40,10 @@
         {% response %}{% call tellMeAbout:%2 %}{% endresponse %}
     {% endblock %}
     {% block %}
+        {% client %}what('s| is) my name{% endclient %}
+        {% response %}{%if {name} %}Your name is {name}{% else %} I don't know your name, Can you please tell me your name?{% endif %}{% endresponse %}
+    {% endblock %}
+    {% block %}
         {% client %}what is (.*){% endclient %}
         {% response %}{% call whatIs:%1 %}{% endresponse %}
     {% endblock %}
@@ -54,10 +58,6 @@
     {% block %}
         {% client %}Call me (.*){% endclient %}
         {% response %}I will remember that {name:%1}{% endresponse %}
-    {% endblock %}
-    {% block %}
-        {% client %}what('s| is) my name{% endclient %}
-        {% response %}{%if {name} %}Your name is {name}{% else %} I don't know your name, Can you please tell me your name?{% endif %}{% endresponse %}
     {% endblock %}
     {% block %}
         {% client %}((I('| a)m|my name is) )?(.*){% endclient %}

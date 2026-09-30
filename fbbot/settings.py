@@ -122,6 +122,9 @@ STATIC_URL = '/static/'
 START_MESSAGE = 'Say "Hello"'
 CHATBOT_TEMPLATE = os.path.join(BASE_DIR, "chatbotTemplate", "Example.template")
 
+# django-chatbot ships without migrations, so they are kept in the bot app
+MIGRATION_MODULES = {"chatbot": "bot.chatbot_migrations"}
+
 ACCESS_TOKEN = os.getenv("FB_PAGE_ACCESS_TOKEN", "")
 VALIDATION_TOKEN = os.getenv("FB_VERIFY_TOKEN", "")
 API_KEY = os.getenv("GOOGLE_KG_API_KEY", "")
